@@ -4,6 +4,8 @@
     <a @click="router.push('/login')">Login</a>
     Home
     <button @click="getCLiente">Cliente</button>
+    <Container />
+
     <pre>{{ pokes }}</pre>
   </div>
 </template>
@@ -19,6 +21,9 @@ const pokes = data.value;
 <script>
 // const router = useRouter();
 export default {
+  components: {
+    Container: () => import("@/components/Container.vue"),
+  },
   data() {
     return {
       numberArray: [1, 2, 3],
