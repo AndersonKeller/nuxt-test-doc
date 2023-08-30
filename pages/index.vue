@@ -3,7 +3,7 @@
     <li v-for="item in numberArray">{{ item }}</li>
     <a @click="router.push('/login')">Login</a>
     Home
-    <button @click="getCLiente">Cliente</button>
+    <button @click="getClient">Cliente</button>
     <Container />
 
     <pre>{{ pokes }}</pre>
