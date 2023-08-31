@@ -21,9 +21,6 @@ const pokes = data.value;
 <script>
 // const router = useRouter();
 export default {
-  components: {
-    Container: () => import("@/components/Container.vue"),
-  },
   data() {
     return {
       numberArray: [1, 2, 3],
