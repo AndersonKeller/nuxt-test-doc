@@ -20,6 +20,10 @@ const pokes = data.value;
 </script>
 <script>
 // const router = useRouter();
+import GestaoSocio from "@/controllers/GestaoSocio.controller";
+import StorageTable from "@/controllers/Storage.controller";
+import Util from "@/controllers/Util.controller";
+
 export default {
   data() {
     return {
@@ -28,13 +32,21 @@ export default {
   },
   methods: {
     setCLiente() {
+      const storage = new StorageTable();
       const user = {
         name: "user",
       };
-      localStorage.setItem("local-user", JSON.stringify(user));
+      storage.setLocal("local-user", JSON.stringify(user));
     },
-    getClient() {
-      const local = localStorage.getItem("local-user");
+    async getClient() {
+      const util = new Util();
+      const app = util.isApp();
+      const gestaoSocio = new GestaoSocio();
+      const matches = await gestaoSocio.getProximosJogos();
+      console.log("app", app);
+      const storage = new StorageTable();
+      console.log(matches);
+      const local = storage.getLocal("local-user");
       console.log(local);
     },
   },
