@@ -1963,23 +1963,23 @@ export default class Util extends StorageTable {
     console.warn(`versão atual: ${process.env.VUE_APP_VERSION}`);
   }
 
-  getInputs = (array) => {
-    // FUNC: getInputs()
-    // CC: Cria imputs padronizados com o projeto
+  // getInputs = (array) => {
+  //   // FUNC: getInputs()
+  //   // CC: Cria imputs padronizados com o projeto
 
-    let elementos = "";
+  //   let elementos = "";
 
-    array.forEach((item, index) => {
-      let inputs = `
-            <div class="col-span-full sm:col-span-3">
-                <label required="${item.required}"><small for="${item.dataset}">${item.label}</small></label>
-                <input id="${item.dataset}" type="${item.type}" placeholder="${item.placeholder}" class="${item.class} px-4 w-full rounded-full focus:ring focus:ring-opacity-75 focus:ring-violet-400 dark:text-coolGray-900 h-10" required="${item.required}" data-${item.dataset} tabindex="${index}" />
-            </div>`;
-      elementos += inputs;
-    });
+  //   array.forEach((item, index) => {
+  //     let inputs = `
+  //           <div class="col-span-full sm:col-span-3">
+  //               <label required="${item.required}"><small for="${item.dataset}">${item.label}</small></label>
+  //               <input id="${item.dataset}" type="${item.type}" placeholder="${item.placeholder}" class="${item.class} px-4 w-full rounded-full focus:ring focus:ring-opacity-75 focus:ring-violet-400 dark:text-coolGray-900 h-10" required="${item.required}" data-${item.dataset} tabindex="${index}" />
+  //           </div>`;
+  //     elementos += inputs;
+  //   });
 
-    return elementos;
-  };
+  //   return elementos;
+  // };
 
   getLangWE() {
     // CC: usado apenas para converter o tipo de lang do WE.

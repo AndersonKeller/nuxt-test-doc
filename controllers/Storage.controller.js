@@ -3,7 +3,7 @@ export default class StorageTable {
 
   constructor() {
     this.DEBUG = false;
-    this.isDebug();
+    // this.isDebug();
   }
 
   isDebug() {

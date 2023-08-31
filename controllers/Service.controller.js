@@ -42,7 +42,8 @@ export default class Service extends StorageTable {
     this.BASE_URL = endpoint || BASE_URL;
 
     const ID_LOGIN_SI = ""; // vai ser dinamico
-    const ORIGEM = window.location.origin;
+    const ORIGEM = "";
+    // const ORIGEM = window.location.origin;
 
     this.ENDPOINTS = {
       GETLOGINS: "logins?url=" + ORIGEM,

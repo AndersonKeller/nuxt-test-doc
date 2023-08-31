@@ -5,7 +5,7 @@
     Home
     <button @click="getClient">Cliente</button>
     <Container />
-
+    <pre>{{ partidas }}</pre>
     <pre>{{ pokes }}</pre>
   </div>
 </template>
@@ -15,15 +15,15 @@ import { useRouter } from "nuxt/app";
 const router = useRouter();
 
 const { data } = await useFetch("/poke");
-
 const pokes = data.value;
+const { data: response } = await useFetch("/getProximosJogos");
+const partidas = response.value;
 </script>
 <script>
 // const router = useRouter();
-import GestaoSocio from "@/controllers/GestaoSocio.controller";
+import Configs from "@/controllers/Config.controller";
 import StorageTable from "@/controllers/Storage.controller";
 import Util from "@/controllers/Util.controller";
-
 export default {
   data() {
     return {
@@ -39,15 +39,17 @@ export default {
       storage.setLocal("local-user", JSON.stringify(user));
     },
     async getClient() {
+      const configs = new Configs();
       const util = new Util();
       const app = util.isApp();
-      const gestaoSocio = new GestaoSocio();
-      const matches = await gestaoSocio.getProximosJogos();
+
       console.log("app", app);
       const storage = new StorageTable();
-      console.log(matches);
+
       const local = storage.getLocal("local-user");
       console.log(local);
+      const user = await configs.getConfig();
+      console.log("config", user);
     },
   },
   mounted() {
